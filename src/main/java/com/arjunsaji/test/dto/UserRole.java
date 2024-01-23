@@ -1,6 +1,6 @@
 package com.arjunsaji.test.dto;
 
-public enum UsersRoles {
+public enum UserRole {
 
     USER,
     ADMIN

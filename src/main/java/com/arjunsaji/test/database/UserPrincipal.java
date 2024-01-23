@@ -1,11 +1,14 @@
 package com.arjunsaji.test.database;
 
-import com.arjunsaji.test.entity.Users;
+import com.arjunsaji.test.entity.User;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 @Data
 public class UserPrincipal implements UserDetails {
@@ -17,7 +20,7 @@ public class UserPrincipal implements UserDetails {
     public UserPrincipal() {
     }
 
-    public UserPrincipal(Users users) {
+    public UserPrincipal(User users) {
         this.email = users.getEmail();
         this.password = users.getPassword();
         this.role = users.getRole().name();
@@ -26,7 +29,9 @@ public class UserPrincipal implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        List<GrantedAuthority> authorities = new ArrayList<>();
+        authorities.add(new SimpleGrantedAuthority(role));
+        return authorities;
     }
 
     @Override
