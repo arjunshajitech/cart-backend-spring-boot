@@ -25,8 +25,9 @@ public class Security101User {
                     .requestMatchers(Constants.API_V1_USER + "/**").hasAuthority(Constants.ROLE_USER);
 
             request
-                    .requestMatchers(Constants.API_V1_PRODUCT + "/list").hasAnyAuthority(Constants.ROLE_ADMIN,Constants.ROLE_USER)
-                    .requestMatchers(Constants.API_V1_PRODUCT + "/**").hasAuthority(Constants.ROLE_ADMIN);
+                    .requestMatchers(Constants.API_V1_PRODUCT + "/**").hasAuthority(Constants.ROLE_ADMIN)
+                    .requestMatchers(Constants.API_V1_PRODUCT + "/list").hasAnyAuthority(Constants.ROLE_ADMIN,Constants.ROLE_USER);
+
 
             request
                     .requestMatchers(Constants.API_V1_CART + "/**").hasAuthority(Constants.ROLE_USER);

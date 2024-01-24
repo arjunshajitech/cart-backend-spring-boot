@@ -19,4 +19,11 @@ public class Order {
     private UUID productId;
     private UUID orderGroupId;
     private float price;
+
+    public Order(UUID userId, UUID productId, UUID orderGroupId, float price) {
+        this.userId = userId;
+        this.productId = productId;
+        this.orderGroupId = orderGroupId;
+        this.price = price;
+    }
 }
